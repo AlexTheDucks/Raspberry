@@ -94,7 +94,7 @@ namespace SchaereSteiPapier
                 return false;
                 
             }
-            Console.WriteLine("Score: Player ", playerPoint, ", Oponent ", opPoint);
+            Console.WriteLine("Score: Player " + playerPoint + ", Oponent " + opPoint);
             return true;
          
         }

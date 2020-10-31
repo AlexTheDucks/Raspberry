@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Explorer700Library;
+using System.Drawing;
 
 namespace SchaereSteiPapier
 {
@@ -13,12 +14,25 @@ namespace SchaereSteiPapier
         static void Main(string[] args)
         {
             Console.WriteLine("Fuck Git-.-");
-            Random rand = new Random();
 
             Explorer700 board = new Explorer700();
 
+            /*
+            Graphics g = board.Display.Graphics;
+            g.DrawImage(Image.FromFile(".Explorer700Library/Explorer700-Demo/Ressources/test.png"), 0, 0);
+            Pen pen = new Pen(Brushes.Black);
+            g.DrawEllipse(pen, -10, -10, 30, 30);
+            g.DrawEllipse(pen, 30, 10, 10, 10);
+            pen.Width = 2;
+            g.DrawBezier(pen, new Point(10, 30), new Point(30, 30), new Point(70, 40), new Point(75, 5));
+            g.DrawString("Hello .NET Core :-)", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Black, new PointF(5, 50));
+            board.Display.Update();
+
+            */
+
             board.Joystick.JoystickChanged += Joystick_MaxPoint;
             Thread.Sleep(5000);
+            
             board.Joystick.JoystickChanged -= Joystick_MaxPoint;
             Game play = new Game(maxpoit,board);
             play.battle();
