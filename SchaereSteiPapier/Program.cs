@@ -32,10 +32,10 @@ namespace SchaereSteiPapier
             Thread.Sleep(3000);
             g.Clear(default);
             board.Display.Update();
-
+            
+            int x = 5;
             for (int i = 0; i < 5; i++)
             {
-                int x = 5;
                 g.DrawString("Spiel Beginnt: " + x, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Red, new PointF(5, 50));
                 board.Display.Update();
                 Thread.Sleep(1000);
