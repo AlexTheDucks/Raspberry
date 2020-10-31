@@ -7,7 +7,7 @@ namespace SchaereSteiPapier
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Fuck Git-.-");
             Random rand = new Random();
 
             Explorer700 board = new Explorer700();
