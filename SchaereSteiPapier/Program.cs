@@ -20,7 +20,8 @@ namespace SchaereSteiPapier
             board.Joystick.JoystickChanged += Joystick_MaxPoint;
             Thread.Sleep(5000);
             board.Joystick.JoystickChanged -= Joystick_MaxPoint;
-            Game play = new Game(maxpoit);
+            Game play = new Game(maxpoit,board);
+            play.battle();
            
         }
 
