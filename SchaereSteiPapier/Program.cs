@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Threading;
 using Explorer700Library;
 
 namespace SchaereSteiPapier
 {
     class Program
     {
+
+        public static int maxpoit = 3;
+
+
         static void Main(string[] args)
         {
             Console.WriteLine("Fuck Git-.-");
@@ -12,27 +17,36 @@ namespace SchaereSteiPapier
 
             Explorer700 board = new Explorer700();
 
-            board.Joystick.JoystickChanged += Joystick_JoystickChanged;
-
-            Game play = new Game(3);
+            board.Joystick.JoystickChanged += Joystick_MaxPoint;
+            Thread.Sleep(5000);
+            board.Joystick.JoystickChanged -= Joystick_MaxPoint;
+            Game play = new Game(maxpoit);
            
         }
 
 
 
-        private static void Joystick_JoystickChanged(object sender, KeyEventArgs e)
+        private static void Joystick_MaxPoint(object sender, KeyEventArgs e)
         {
-            Console.WriteLine("Joystick: " + e.Keys);
 
-            if ((e.Keys & Keys.Up) != 0)
+            
+
+
+            if ((e.Keys & Keys.Left) != 0)
             {
-                Console.WriteLine("Up");
+                maxpoit--;
+                Console.WriteLine(maxpoit);
+            }
+            if ((e.Keys & Keys.Right) != 0)
+            {
+                maxpoit++;
+                Console.WriteLine(maxpoit);
             }
 
-            if ((e.Keys & Keys.Up) == Keys.Up)
-            {
+            // Display Val
 
-            }
+           
+
 
         }
     }
