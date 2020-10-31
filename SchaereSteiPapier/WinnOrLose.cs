@@ -4,10 +4,10 @@ using System.Text;
 
 namespace SchaereSteiPapier
 {
-    enum SSP
+    enum WinnOrLose
     {
-        Schaere = 0,
-        Stein = 1,
-        Papier = 2
+        Equal = 0,
+        Winn = 1,
+        Lose = 2
     }
 }

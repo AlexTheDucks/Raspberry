@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nikol\\Documents\\GitHub\\Raspberry\\Library\\Library.csproj": {}
+    "C:\\Users\\yanni\\source\\repos\\Raspberry\\Library\\Library.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nikol\\Documents\\GitHub\\Raspberry\\Library\\Library.csproj": {
+    "C:\\Users\\yanni\\source\\repos\\Raspberry\\Library\\Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nikol\\Documents\\GitHub\\Raspberry\\Library\\Library.csproj",
+        "projectUniqueName": "C:\\Users\\yanni\\source\\repos\\Raspberry\\Library\\Library.csproj",
         "projectName": "Library",
-        "projectPath": "C:\\Users\\nikol\\Documents\\GitHub\\Raspberry\\Library\\Library.csproj",
-        "packagesPath": "C:\\Users\\nikol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nikol\\Documents\\GitHub\\Raspberry\\Library\\obj\\",
+        "projectPath": "C:\\Users\\yanni\\source\\repos\\Raspberry\\Library\\Library.csproj",
+        "packagesPath": "C:\\Users\\yanni\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yanni\\source\\repos\\Raspberry\\Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nikol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yanni\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -70,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

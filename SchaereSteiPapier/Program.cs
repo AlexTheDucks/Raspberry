@@ -1,13 +1,18 @@
 ﻿using System;
+using Explorer700Library;
 
-namespace SchaereSteiPapier
+namespace Game
 {
     class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Console.WriteLine("Hello World!2");
+            Random rand = new Random();
+            for(int i = 0; i<10; i++)
+            {
+                Console.WriteLine(rand.Next(3));
+            }
         }
     }
 }
