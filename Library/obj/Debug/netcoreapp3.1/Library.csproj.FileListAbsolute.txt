@@ -23,3 +23,9 @@ C:\Users\yanni\source\repos\Raspberry\Library\obj\Debug\netcoreapp3.1\Library.cs
 C:\Users\yanni\source\repos\Raspberry\Library\obj\Debug\netcoreapp3.1\Library.dll
 C:\Users\yanni\source\repos\Raspberry\Library\obj\Debug\netcoreapp3.1\Library.pdb
 C:\Users\yanni\source\repos\Raspberry\Library\obj\Debug\netcoreapp3.1\Library.genruntimeconfig.cache
+C:\Users\nikol\Documents\GitHub\Raspberry\Library\obj\Debug\netcoreapp3.1\Library.csprojAssemblyReference.cache
+C:\Users\nikol\Documents\GitHub\Raspberry\Library\obj\Debug\netcoreapp3.1\Library.AssemblyInfoInputs.cache
+C:\Users\nikol\Documents\GitHub\Raspberry\Library\obj\Debug\netcoreapp3.1\Library.AssemblyInfo.cs
+C:\Users\nikol\Documents\GitHub\Raspberry\Library\obj\Debug\netcoreapp3.1\Library.csproj.CoreCompileInputs.cache
+C:\Users\nikol\Documents\GitHub\Raspberry\Library\obj\Debug\netcoreapp3.1\Library.dll
+C:\Users\nikol\Documents\GitHub\Raspberry\Library\obj\Debug\netcoreapp3.1\Library.pdb
