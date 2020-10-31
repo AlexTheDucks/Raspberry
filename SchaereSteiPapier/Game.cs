@@ -46,6 +46,7 @@ namespace SchaereSteiPapier
 
         private void attack()
         {
+            Console.WriteLine("------------");
             Console.WriteLine("Attack");
             Thread.Sleep(8000);
             Auswahl opWahl = op.yourTurn();
@@ -61,6 +62,10 @@ namespace SchaereSteiPapier
             {
                 opPoint++;
                 Console.WriteLine("Loose");
+            }
+            else
+            {
+                Console.WriteLine("Draw");
             }
 
 
@@ -85,11 +90,13 @@ namespace SchaereSteiPapier
         {
             if(playerPoint>=maxPoint | opPoint >= maxPoint)
             {
-                return false;
                 Console.WriteLine("End Game");
+                return false;
+                
             }
+            Console.WriteLine("Score: Player ", playerPoint, ", Oponent ", opPoint);
             return true;
-            Console.WriteLine("Score: Player " , playerPoint, ", Oponent ", opPoint);
+         
         }
 
         private static void Joystick_ChooseAttack(object sender, KeyEventArgs e)
