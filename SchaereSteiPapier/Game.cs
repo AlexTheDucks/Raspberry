@@ -11,8 +11,7 @@ namespace SchaereSteiPapier
 {
     class Game
     {
-        static Explorer700 board;
-        static Graphics g = board.Display.Graphics;
+        Explorer700 board;
         AIOponent op = new AIOponent();
         int maxPoint;
         static int opPoint = 0;
