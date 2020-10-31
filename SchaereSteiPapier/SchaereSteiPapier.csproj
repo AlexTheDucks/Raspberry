@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Library\Library.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Explorer700Library\Explorer700Library\Utils\" />
   </ItemGroup>
 
@@ -24,5 +20,9 @@
     <None Include="Explorer700Library\Explorer700-Demo\Explorer700-Demo.csproj" />
     <None Include="Explorer700Library\Explorer700Library\Explorer700Library.csproj" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="cd &quot;$(TargetDir)&quot; &#xD;&#xA;&quot;$(SolutionDir)\SecureUpload.exe&quot; . pi-home:netcore/$(ProjectName)" />
+  </Target>
 
 </Project>
