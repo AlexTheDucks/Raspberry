@@ -10,6 +10,7 @@ namespace Explorer700_Demo
 {
     class Program
     {
+        /*
         static void Main(string[] args)
         {
             Utils.WaitForDebugger();
@@ -62,5 +63,6 @@ namespace Explorer700_Demo
             }     
 
         }
+        */
     }
 }
