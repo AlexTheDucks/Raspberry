@@ -21,19 +21,31 @@ namespace SchaereSteiPapier
             Graphics g = board.Display.Graphics;
             //g.DrawImage(Image.FromFile(".Explorer700Library/Explorer700-Demo/Ressources/test.png"), 0, 0);
             Pen pen = new Pen(Brushes.Blue);
+            Pen penRed = new Pen(Brushes.Red);
             g.DrawEllipse(pen, -10, -10, 30, 30);
             g.DrawEllipse(pen, 30, 10, 10, 10);
             pen.Width = 2;
             g.DrawBezier(pen, new Point(10, 30), new Point(30, 30), new Point(70, 40), new Point(75, 5));
             g.DrawString("Fuck Git-.-", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
             board.Display.Update();
-            Thread.Sleep(5000);
+            Thread.Sleep(100);
+            g.Clear(default);
+            board.Display.Update();
+
+            for (int i = 0; i < 5; i++)
+            {
+                int x = 5;
+                g.DrawString("Spiel Beginnt: " + x, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
+                board.Display.Update();
+                Thread.Sleep(1000);
+                x--;
+            }
             g.Clear(default);
             board.Display.Update();
 
 
 
-            board.Joystick.JoystickChanged += Joystick_MaxPoint;
+                board.Joystick.JoystickChanged += Joystick_MaxPoint;
             Thread.Sleep(5000);
             
             board.Joystick.JoystickChanged -= Joystick_MaxPoint;
