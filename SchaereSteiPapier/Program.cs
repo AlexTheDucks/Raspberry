@@ -10,9 +10,30 @@ namespace SchaereSteiPapier
             Console.WriteLine("Hello World!");
             Random rand = new Random();
 
-            Explorer700 Board = new Explorer700();
+            Explorer700 board = new Explorer700();
+
+            board.Joystick.JoystickChanged += Joystick_JoystickChanged;
 
             Game play = new Game(3);
+           
+        }
+
+
+
+        private static void Joystick_JoystickChanged(object sender, KeyEventArgs e)
+        {
+            Console.WriteLine("Joystick: " + e.Keys);
+
+            if ((e.Keys & Keys.Up) != 0)
+            {
+                Console.WriteLine("Up");
+            }
+
+            if ((e.Keys & Keys.Up) == Keys.Up)
+            {
+
+            }
+
         }
     }
 }
