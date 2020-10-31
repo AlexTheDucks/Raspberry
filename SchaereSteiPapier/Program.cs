@@ -9,13 +9,14 @@ namespace SchaereSteiPapier
     {
 
         public static int maxpoit = 3;
+        static Explorer700 board = new Explorer700();
 
 
         static void Main(string[] args)
         {
             Console.WriteLine("Fuck Git-.-");
 
-            Explorer700 board = new Explorer700();
+            
 
             
             Graphics g = board.Display.Graphics;
@@ -61,9 +62,11 @@ namespace SchaereSteiPapier
                 Console.WriteLine(maxpoit);
             }
 
-            // Display Val
+            Graphics g = board.Display.Graphics;
+            g.DrawString(maxpoit.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
+            board.Display.Update();
 
-           
+
 
 
         }
