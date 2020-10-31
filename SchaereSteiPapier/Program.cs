@@ -27,8 +27,11 @@ namespace SchaereSteiPapier
             g.DrawBezier(pen, new Point(10, 30), new Point(30, 30), new Point(70, 40), new Point(75, 5));
             g.DrawString("Fuck Git-.-", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
             board.Display.Update();
+            Thread.Sleep(5000);
+            g.Clear(default);
+            board.Display.Update();
 
-            
+
 
             board.Joystick.JoystickChanged += Joystick_MaxPoint;
             Thread.Sleep(5000);
