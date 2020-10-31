@@ -59,10 +59,6 @@ namespace SchaereSteiPapier
 
         private static void Joystick_MaxPoint(object sender, KeyEventArgs e)
         {
-
-            
-
-
             if ((e.Keys & Keys.Left) != 0)
             {
                 maxpoit--;
