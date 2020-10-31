@@ -5,21 +5,23 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading;
 using Explorer700Library;
+using System.Drawing;
 
 namespace SchaereSteiPapier
 {
     class Game
     {
-        Explorer700 board;
+        static Explorer700 board;
+        static Graphics g = board.Display.Graphics;
         AIOponent op = new AIOponent();
         int maxPoint;
-        int opPoint = 0;
-        int playerPoint = 0;
+        static int opPoint = 0;
+        static int playerPoint = 0;
         static Auswahl playerWahl = (Auswahl)0;
 
-        public Game(int maxPoint, Explorer700 board)
+        public Game(int maxPoint, Explorer700 boardgiven)
         {
-            this.board = board;
+            board = boardgiven;
             board.Joystick.JoystickChanged += Joystick_ChooseAttack;
             this.maxPoint = maxPoint;           
         }
@@ -117,7 +119,8 @@ namespace SchaereSteiPapier
                 Console.WriteLine(playerWahl);
             }
 
-            // Display playerWahl
+           
+           
 
 
         }
