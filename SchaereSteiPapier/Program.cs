@@ -20,12 +20,12 @@ namespace SchaereSteiPapier
             
             Graphics g = board.Display.Graphics;
             //g.DrawImage(Image.FromFile(".Explorer700Library/Explorer700-Demo/Ressources/test.png"), 0, 0);
-            Pen pen = new Pen(Brushes.Black);
+            Pen pen = new Pen(Brushes.Blue);
             g.DrawEllipse(pen, -10, -10, 30, 30);
             g.DrawEllipse(pen, 30, 10, 10, 10);
             pen.Width = 2;
             g.DrawBezier(pen, new Point(10, 30), new Point(30, 30), new Point(70, 40), new Point(75, 5));
-            g.DrawString("Fuck Git-.-", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Black, new PointF(5, 50));
+            g.DrawString("Fuck Git-.-", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
             board.Display.Update();
 
             
