@@ -1,7 +1,7 @@
 ﻿using System;
 using Explorer700Library;
 
-namespace Game
+namespace SchaereSteiPapier
 {
     class Program
     {
@@ -9,10 +9,10 @@ namespace Game
         {
             Console.WriteLine("Hello World!");
             Random rand = new Random();
-            for(int i = 0; i<10; i++)
-            {
-                Console.WriteLine(rand.Next(3));
-            }
+
+            Explorer700 Board = new Explorer700();
+
+            Game play = new Game(3);
         }
     }
 }
