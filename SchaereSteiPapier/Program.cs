@@ -33,8 +33,6 @@ namespace SchaereSteiPapier
             Thread.Sleep(3000);
             g.Clear(default);
             board.Display.Update();
-
-
             
             int x = 5;
             for (int i = 0; i < 5; i++)
@@ -46,10 +44,6 @@ namespace SchaereSteiPapier
                 board.Display.Update();
                 x--;
             }
-    //        void CountDown()
-  //          {
-//
-            //}
 
 
                 board.Joystick.JoystickChanged += Joystick_MaxPoint;
@@ -81,11 +75,11 @@ namespace SchaereSteiPapier
             }
 
             Graphics g = board.Display.Graphics;
-            g.DrawString(maxpoit.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
+            g.DrawString("Anzahl Siege : " + maxpoit.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(10, 50));
             board.Display.Update();
-
-
-
+            Thread.Sleep(1000);
+            g.Clear(default);
+            board.Display.Update();
 
         }
     }
