@@ -2,6 +2,7 @@
 using System.Threading;
 using Explorer700Library;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SchaereSteiPapier
 {
@@ -24,26 +25,31 @@ namespace SchaereSteiPapier
             Pen pen = new Pen(Brushes.Blue);
             Pen penRed = new Pen(Brushes.Red);
             g.DrawEllipse(pen, -10, -10, 30, 30);
-            g.DrawEllipse(pen, 30, 10, 10, 10);
+            g.DrawEllipse(penRed, 30, 10, 10, 10);
             pen.Width = 2;
             g.DrawBezier(pen, new Point(10, 30), new Point(30, 30), new Point(70, 40), new Point(75, 5));
-            g.DrawString("Fuck Git-.-", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
+            g.DrawString("Fuck Git-.-", new Font(new FontFamily("arial"), 3, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
             board.Display.Update();
-            Thread.Sleep(100);
+            Thread.Sleep(3000);
             g.Clear(default);
             board.Display.Update();
 
+
+            
+            int x = 5;
             for (int i = 0; i < 5; i++)
             {
-                int x = 5;
-                g.DrawString("Spiel Beginnt: " + x, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
+                g.DrawString("Spiel Beginnt :" + x, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Red, new PointF(5, 50));
                 board.Display.Update();
                 Thread.Sleep(1000);
+                g.Clear(default);
+                board.Display.Update();
                 x--;
             }
-            g.Clear(default);
-            board.Display.Update();
-
+    //        void CountDown()
+  //          {
+//
+            //}
 
 
                 board.Joystick.JoystickChanged += Joystick_MaxPoint;
