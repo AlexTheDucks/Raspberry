@@ -71,12 +71,10 @@ namespace SchaereSteiPapier
             }
 
             Graphics g = board.Display.Graphics;
-            g.DrawString("Anzahl Siege : " + maxpoit.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(10, 50));
-            board.Display.Update();
-            Thread.Sleep(1000);
             g.Clear(default);
             board.Display.Update();
-
+            g.DrawString("Anzahl Siege : " + maxpoit.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(10, 50));
+            board.Display.Update();
         }
     }
 }
