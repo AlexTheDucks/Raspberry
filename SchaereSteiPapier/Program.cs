@@ -19,23 +19,20 @@ namespace SchaereSteiPapier
 
 
             DrawingMethods.drawLoadingScreen(board);
-            
-            
-            
-            
+
+            board.Joystick.JoystickChanged += Joystick_MaxPoint;
+
+
             for (int i = 5; i >= 0; i--)
             {
                 DrawingMethods.drawMaxPointScreen(board,maxpoint,i);
-            }
-
-
-            board.Joystick.JoystickChanged += Joystick_MaxPoint;
-            // g.DrawString(" " + maxpoint.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(50, 50));
-            Thread.Sleep(5000);
-
+                Thread.Sleep(1000);
+            }            
             
             board.Joystick.JoystickChanged -= Joystick_MaxPoint;
+
             Game play = new Game(maxpoint,board);
+
             play.battle();
            
         }
@@ -49,14 +46,12 @@ namespace SchaereSteiPapier
             {
                 maxpoint--;
                 Console.WriteLine(maxpoint);
-              //  g.DrawString(" " + maxpoint, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(40, 50));
             }
             if ((e.Keys & Keys.Right) != 0)
             {
                 maxpoint++;
-                Console.WriteLine(maxpoint);
-                
-                // g.DrawString(" " + maxpoint, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(40, 50));
+                Console.WriteLine(maxpoint);                
+               
             }
 
             DrawingMethods.drawMaxPointScreen(board, maxpoint, -1);

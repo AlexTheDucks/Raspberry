@@ -97,7 +97,7 @@ namespace SchaereSteiPapier
         public static void drawMaxPointGraphic(Graphics g, int maxPoint)
         {
 
-            g.DrawString("Wähle anzahl Siege:", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Red, new PointF(10, 50));
+            g.DrawString("Wähle anzahl Siege:", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Red, new PointF(10, 10));
             g.DrawString(maxPoint.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.White, new PointF(57, 25));
 
         }
