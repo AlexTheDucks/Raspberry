@@ -23,9 +23,9 @@ namespace SchaereSteiPapier
             Graphics g = board.Display.Graphics;
             Pen pen = new Pen(Brushes.Blue);
             Pen penRed = new Pen(Brushes.Red);
-            g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Schere.png"), 0, 0);
-            g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Stein.png"), 36, 26);
-            g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Papier.png"), 82, 0);
+            g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Schere.png"), 0, 0);
+            g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Stein.png"), 36, 26);
+            g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Papier.png"), 82, 0);
             board.Display.Update();
             Thread.Sleep(3000);
             g.Clear(default);
