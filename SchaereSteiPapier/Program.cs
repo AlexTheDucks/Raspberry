@@ -37,7 +37,7 @@ namespace SchaereSteiPapier
             int x = 5;
             for (int i = 0; i < 5; i++)
             {
-                g.DrawString("Spiel Beginnt :" + x, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Red, new PointF(5, 50));
+                g.DrawString("Wähle anzahl Siege in :" + x, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Red, new PointF(5, 50));
                 board.Display.Update();
                 Thread.Sleep(1000);
                 g.Clear(default);
@@ -47,19 +47,9 @@ namespace SchaereSteiPapier
 
 
             board.Joystick.JoystickChanged += Joystick_MaxPoint;
-            //Thread.Sleep(5000);
+            Thread.Sleep(5000);
 
-            int y = 5;
-            for (int i = 0; i < 5; i++)
-            {
-                g.DrawString("Timer :" + y, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Red, new PointF(5, 5));
-                board.Display.Update();
-                Thread.Sleep(1000);
-                g.Clear(default);
-                board.Display.Update();
-                y--;
-            }
-
+            
             board.Joystick.JoystickChanged -= Joystick_MaxPoint;
             Game play = new Game(maxpoit,board);
             play.battle();
