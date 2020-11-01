@@ -46,6 +46,11 @@ namespace SchaereSteiPapier
             DrawPattern.drawFinalGraphic(g, WinOrLoose);
 
             board.Display.Update();
+            if (WinOrLoose)
+            {
+                Sound.vicorySound(board); 
+            }
+            
             Thread.Sleep(3000);
            
             
