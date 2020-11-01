@@ -8,7 +8,7 @@ namespace SchaereSteiPapier
 {
     static class DrawingMethods
     {
-        public static Graphics drawAttacChoosScrean(Explorer700 board, int playerPoint, int opPoint, int TimeLeft)
+        public static Graphics drawAttackChooseScreen(Explorer700 board, int playerPoint, int opPoint, int TimeLeft)
         {
             Graphics g = board.Display.Graphics;
 

@@ -50,7 +50,7 @@ namespace SchaereSteiPapier
         {
             for(int i=5; i>=0; i--)
             {
-                DrawingMethods.drawAttacChoosScrean(board, playerPoint, opPoint,i);
+                DrawingMethods.drawAttackChooseScreen(board, playerPoint, opPoint,i);
                 Thread.Sleep(1000);
             }
 
@@ -132,7 +132,7 @@ namespace SchaereSteiPapier
             }
 
 
-            DrawingMethods.drawAttacChoosScrean(board, playerPoint, opPoint, -1);
+            DrawingMethods.drawAttackChooseScreen(board, playerPoint, opPoint, -1);
 
 
         }
