@@ -46,9 +46,8 @@ namespace SchaereSteiPapier
             DrawPattern.drawFinalGraphic(g, WinOrLoose);
 
             board.Display.Update();
-            Thread.Sleep(10000);
-            g.Clear(default);
-            board.Display.Update();
+            Thread.Sleep(5000);
+           
             
         }
 
@@ -74,12 +73,38 @@ namespace SchaereSteiPapier
             g.Clear(default);
 
             DrawPattern.drawMaxPointGraphic(g, maxPoint);
-            DrawPattern.drawTimerBottom(g, timeLeft);
+            DrawPattern.drawTimerBottomRight(g, timeLeft);
 
             board.Display.Update();
            
 
         }
+
+
+        public static void drawReplayScreen(Explorer700 board, int timeLeft)
+        {
+
+            Graphics g = board.Display.Graphics;
+
+            g.Clear(default);
+
+            DrawPattern.drawReplayGraphic(g);
+            DrawPattern.drawTimerBottomRight(g, timeLeft);
+
+            board.Display.Update();
+
+
+        }
+
+        public static void clearScreen(Explorer700 board)
+        {
+            Graphics g = board.Display.Graphics;
+
+            g.Clear(default);
+
+            board.Display.Update();
+        }
+
 
 
 

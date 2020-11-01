@@ -17,13 +17,16 @@ namespace SchaereSteiPapier
         static int opPoint = 0;
         static int playerPoint = 0;
         static Auswahl playerWahl = (Auswahl)0;
-        static int Timer;
+        static int timeLeft;
 
         public Game(int maxPoint, Explorer700 boardgiven)
         {
             board = boardgiven;
             board.Joystick.JoystickChanged += Joystick_ChooseAttack;
-            this.maxPoint = maxPoint;           
+            this.maxPoint = maxPoint;
+            opPoint = 0;
+            playerPoint = 0;
+
         }
 
         public void battle()
@@ -32,6 +35,8 @@ namespace SchaereSteiPapier
             {
                 attack();
             }
+
+            board.Joystick.JoystickChanged -= Joystick_ChooseAttack;
 
             if (playerPoint >= maxPoint)
             {
@@ -43,17 +48,16 @@ namespace SchaereSteiPapier
                 DrawingMethods.drawFinalScreen(board,false);
             }
 
-            
-
-
-            
+                       
         }
 
+       
         private void attack()
         {
             for(int i=5; i>=0; i--)
             {
-                DrawingMethods.drawAttackChooseScreen(board, playerPoint, opPoint,i);
+                timeLeft = i;
+                DrawingMethods.drawAttackChooseScreen(board, playerPoint, opPoint,timeLeft);
                 Thread.Sleep(1000);
             }
 
@@ -81,7 +85,7 @@ namespace SchaereSteiPapier
             }
 
             DrawingMethods.drawBattleScreen(board,playerPoint,opPoint);
-            Thread.Sleep(4000);
+            Thread.Sleep(3000);
 
 
         }
@@ -138,7 +142,7 @@ namespace SchaereSteiPapier
             }
 
 
-            DrawingMethods.drawAttackChooseScreen(board, playerPoint, opPoint, -1);
+            DrawingMethods.drawAttackChooseScreen(board, playerPoint, opPoint, timeLeft);
 
 
         }

@@ -11,6 +11,8 @@ namespace SchaereSteiPapier
 
         public static int maxpoint = 3;
         static Explorer700 board = new Explorer700();
+        static int timeLeft;
+        static bool replay;
 
 
         static void Main(string[] args)
@@ -20,31 +22,67 @@ namespace SchaereSteiPapier
 
             DrawingMethods.drawLoadingScreen(board);
 
+            do
+            {
+                playerSetMaxPoint();
+
+                Game play = new Game(maxpoint, board);
+
+                play.battle();
+
+                replay = false;
+                board.Joystick.JoystickChanged += Joystick_Replay;
+                for (int i = 5; i >= 0; i--)
+                {
+                    if (!replay)
+                    {
+                        timeLeft = i;
+                        DrawingMethods.drawReplayScreen(board, timeLeft);
+                        Thread.Sleep(1000);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    
+                }
+                board.Joystick.JoystickChanged -= Joystick_Replay;
+            } while (replay);
+
+            DrawingMethods.clearScreen(board);
+           
+            
+           
+        }
+
+
+        static private void playerSetMaxPoint()
+        {
             board.Joystick.JoystickChanged += Joystick_MaxPoint;
 
 
             for (int i = 5; i >= 0; i--)
             {
-                DrawingMethods.drawMaxPointScreen(board,maxpoint,i);
+                timeLeft = i;
+                DrawingMethods.drawMaxPointScreen(board, maxpoint, timeLeft);
                 Thread.Sleep(1000);
-            }            
-            
+            }
+
             board.Joystick.JoystickChanged -= Joystick_MaxPoint;
-
-            Game play = new Game(maxpoint,board);
-
-            play.battle();
-           
         }
 
 
 
         private static void Joystick_MaxPoint(object sender, KeyEventArgs e)
         {
-            Graphics g = board.Display.Graphics;
+            
             if ((e.Keys & Keys.Left) != 0)
             {
-                maxpoint--;
+                if (maxpoint>1)
+                {
+                    maxpoint--;
+                }
+                
                 Console.WriteLine(maxpoint);
             }
             if ((e.Keys & Keys.Right) != 0)
@@ -54,7 +92,17 @@ namespace SchaereSteiPapier
                
             }
 
-            DrawingMethods.drawMaxPointScreen(board, maxpoint, -1);
+            DrawingMethods.drawMaxPointScreen(board, maxpoint, timeLeft);
+
+        }
+
+        private static void Joystick_Replay(object sender, KeyEventArgs e)
+        {
+                      
+            if ((e.Keys & Keys.Center) != 0)
+            {
+                replay = true;                                
+            }
 
         }
     }
