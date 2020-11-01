@@ -9,7 +9,7 @@ namespace SchaereSteiPapier
     class Program
     {
 
-        public static int maxpoit = 3;
+        public static int maxpoint = 3;
         static Explorer700 board = new Explorer700();
 
 
@@ -43,21 +43,18 @@ namespace SchaereSteiPapier
                 x--;
             }
 
-  /*          g.Clear(default);
-            board.Display.Update();
-            g.DrawString("Anzahl Siege : " + maxpoit.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(10, 50));
-            board.Display.Update();
-*/
-            board.Joystick.JoystickChanged += Joystick_MaxPoint;
             g.Clear(default);
             board.Display.Update();
-            g.DrawString("Anzahl Siege : " + maxpoit.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(10, 50));
+            g.DrawString("Anzahl Siege : ", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(10, 50));
             board.Display.Update();
+
+            board.Joystick.JoystickChanged += Joystick_MaxPoint;
+            // g.DrawString(" " + maxpoint.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(50, 50));
             Thread.Sleep(5000);
 
             
             board.Joystick.JoystickChanged -= Joystick_MaxPoint;
-            Game play = new Game(maxpoit,board);
+            Game play = new Game(maxpoint,board);
             play.battle();
            
         }
@@ -66,19 +63,20 @@ namespace SchaereSteiPapier
 
         private static void Joystick_MaxPoint(object sender, KeyEventArgs e)
         {
+            Graphics g = board.Display.Graphics;
             if ((e.Keys & Keys.Left) != 0)
             {
-                maxpoit--;
-                Console.WriteLine(maxpoit);
+                maxpoint--;
+                Console.WriteLine(maxpoint);
+              //  g.DrawString(" " + maxpoint, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(40, 50));
             }
             if ((e.Keys & Keys.Right) != 0)
             {
-                maxpoit++;
-                Console.WriteLine(maxpoit);
+                maxpoint++;
+                Console.WriteLine(maxpoint);
+               // g.DrawString(" " + maxpoint, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(40, 50));
             }
 
-            Graphics g = board.Display.Graphics;
-            g.Clear(default);
         }
     }
 }
