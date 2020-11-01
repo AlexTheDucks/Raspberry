@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using Explorer700Library;
+using System.Threading;
 
 namespace SchaereSteiPapier
 {
@@ -34,7 +35,7 @@ namespace SchaereSteiPapier
 
 
 
-        public static void drawAttackCoose(Graphics g)
+        public static void drawAttackCoose(Graphics g, Auswahl auswahl)
         {
             Pen pen = new Pen(Brushes.Blue);
             Brush brush = Brushes.Blue;
@@ -50,28 +51,58 @@ namespace SchaereSteiPapier
             pointsRight[2] = new PointF(103, 25);
 
             g.DrawRectangle(pen, new Rectangle(39, 0, 50, 50));
-       //     g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Schere.png"), 42, 8);
-       //     g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Stein.png"), 42, 3);
-      //      g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Papier.png"), 41, 1);
             g.FillPolygon(brush, pointsLeft);
             g.FillPolygon(brush, pointsRight);
+
+            if((int)auswahl == 0)
+            {
+                g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Schere.png"), 42, 8);
+            }
+            else if((int)auswahl == 1){
+                g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Stein.png"), 43, 7);
+            }
+            else
+            {
+                g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Papier.png"), 44, 4);
+            }
+
         }
 
 
-        public static void drawBattleGraphic(Graphics g)
+        public static void drawBattleGraphic(Graphics g, Auswahl playerWahl, Auswahl opWahl)
         {
             Pen pen = new Pen(Brushes.Blue);
             Brush brush = Brushes.Blue;            
 
             g.DrawRectangle(pen, new Rectangle(10, 10, 40, 40));
-             //    g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Schere.png"), 12, 12);
-            //      g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Stein.png"), 12, 12);
-             //     g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Papier.png"), 12, 12);
             g.DrawRectangle(pen, new Rectangle(78, 10, 40, 40));
-            //     g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Schere.png"), 80, 12);
-            //      g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Stein.png"), 80, 12);
-            //      g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Papier.png"), 80, 12);
             g.DrawString("VS", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(56, 25));
+
+            if ((int)playerWahl == 0)
+            {
+                g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Schere.png"), 12, 12);
+            }
+            else if ((int)playerWahl == 1)
+            {
+                g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Stein.png"), 12, 12);
+            }
+            else
+            {
+                g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Papier.png"), 12, 12);
+            }
+
+            if ((int)opWahl == 0)
+            {
+                g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Schere.png"), 80, 12);
+            }
+            else if ((int)opWahl == 1)
+            {
+                g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Stein.png"), 80, 12);
+            }
+            else
+            {
+                g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Papier.png"), 80, 12);
+            }
 
         }
 
@@ -92,13 +123,18 @@ namespace SchaereSteiPapier
 
         }
 
-        public static void drawLodingGraphic(Graphics g)
+        public static void drawLodingGraphic(Graphics g, Explorer700 board)
         {
             Pen pen = new Pen(Brushes.Blue);
             Pen penRed = new Pen(Brushes.Red);
             g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Schere.png"), 0, 0);
+            board.Display.Update();
+            Thread.Sleep(500);
             g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Stein.png"), 36, 26);
+            board.Display.Update();
+            Thread.Sleep(500);
             g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Papier.png"), 82, 0);
+            
 
         }
 

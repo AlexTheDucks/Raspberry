@@ -17,9 +17,7 @@ namespace SchaereSteiPapier
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Fuck Git-.-");
-
-
+           
             DrawingMethods.drawLoadingScreen(board);
 
             do

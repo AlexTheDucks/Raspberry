@@ -57,7 +57,7 @@ namespace SchaereSteiPapier
             for(int i=5; i>=0; i--)
             {
                 timeLeft = i;
-                DrawingMethods.drawAttackChooseScreen(board, playerPoint, opPoint,timeLeft);
+                DrawingMethods.drawAttackChooseScreen(board, playerPoint, opPoint,timeLeft,playerWahl);
                 Thread.Sleep(1000);
             }
 
@@ -84,7 +84,7 @@ namespace SchaereSteiPapier
                 Console.WriteLine("Draw");
             }
 
-            DrawingMethods.drawBattleScreen(board,playerPoint,opPoint);
+            DrawingMethods.drawBattleScreen(board,playerPoint,opPoint,playerWahl,opWahl);
             Thread.Sleep(3000);
 
 
@@ -93,7 +93,7 @@ namespace SchaereSteiPapier
         private WinnOrLose selectWinner (Auswahl player, Auswahl oponent)
         {
             int w = player - oponent;
-            if(w==-2 | w == -1)
+            if(w==-2 | w == 1)
             {
                 return (WinnOrLose)1;
             }
@@ -142,7 +142,7 @@ namespace SchaereSteiPapier
             }
 
 
-            DrawingMethods.drawAttackChooseScreen(board, playerPoint, opPoint, timeLeft);
+            DrawingMethods.drawAttackChooseScreen(board, playerPoint, opPoint, timeLeft, playerWahl);
 
 
         }

@@ -9,13 +9,13 @@ namespace SchaereSteiPapier
 {
     static class DrawingMethods
     {
-        public static void drawAttackChooseScreen(Explorer700 board, int playerPoint, int opPoint, int TimeLeft)
+        public static void drawAttackChooseScreen(Explorer700 board, int playerPoint, int opPoint, int TimeLeft, Auswahl auswahl)
         {
             Graphics g = board.Display.Graphics;
 
             g.Clear(default);
 
-            DrawPattern.drawAttackCoose(g);
+            DrawPattern.drawAttackCoose(g,auswahl);
             DrawPattern.drawTimerBottom(g, TimeLeft);
             DrawPattern.drawScore(g, playerPoint, opPoint);
 
@@ -23,13 +23,13 @@ namespace SchaereSteiPapier
             
         }
 
-        public static void drawBattleScreen(Explorer700 board, int playerPoint, int opPoint)
+        public static void drawBattleScreen(Explorer700 board, int playerPoint, int opPoint, Auswahl playerWahl, Auswahl opWahl)
         {
             Graphics g = board.Display.Graphics;
 
             g.Clear(default);
 
-            DrawPattern.drawBattleGraphic(g);            
+            DrawPattern.drawBattleGraphic(g,playerWahl,opWahl);            
             DrawPattern.drawScore(g, playerPoint, opPoint);
 
             board.Display.Update();
@@ -46,7 +46,7 @@ namespace SchaereSteiPapier
             DrawPattern.drawFinalGraphic(g, WinOrLoose);
 
             board.Display.Update();
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
            
             
         }
@@ -58,10 +58,10 @@ namespace SchaereSteiPapier
 
             g.Clear(default);
 
-            DrawPattern.drawLodingGraphic(g);    
+            DrawPattern.drawLodingGraphic(g, board);    
             
             board.Display.Update();
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
         }
 
