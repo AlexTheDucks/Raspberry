@@ -7,17 +7,20 @@ using System.Threading;
 
 namespace SchaereSteiPapier
 {
+    // Code Blocks to construct the screen
     static class DrawPattern
     {
 
-        public static void drawScore(Graphics g, int playerPoint, int opPoint)
+        //draws the score at the bottom of the screen
+        public static void drawScoreGraphic(Graphics g, int playerPoint, int opPoint)
         {
             g.DrawString("You: " + playerPoint, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
             g.DrawString("Op.: " + opPoint, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(90, 50));
 
         }
 
-        public static void drawTimerBottom(Graphics g, int TimeLeft)
+        //draws the timer on the bottom center of the screen
+        public static void drawTimerBottomCenterGraphic(Graphics g, int TimeLeft)
         {
             if (TimeLeft != -1)
             {
@@ -25,7 +28,8 @@ namespace SchaereSteiPapier
             }
         }
 
-        public static void drawTimerBottomRight(Graphics g, int TimeLeft)
+        //draws the timer on the bottom right of the screen
+        public static void drawTimerBottomRightGraphic(Graphics g, int TimeLeft)
         {
             if (TimeLeft != -1)
             {
@@ -34,8 +38,8 @@ namespace SchaereSteiPapier
         }
 
 
-
-        public static void drawAttackCoose(Graphics g, Auswahl auswahl)
+        //draws the Input picture that is chosen at the moment
+        public static void drawChosenImputGraphic(Graphics g, Auswahl auswahl)
         {
             Pen pen = new Pen(Brushes.Blue);
             Brush brush = Brushes.Blue;
@@ -69,7 +73,8 @@ namespace SchaereSteiPapier
         }
 
 
-        public static void drawBattleGraphic(Graphics g, Auswahl playerWahl, Auswahl opWahl)
+        // shows the picturs of the both imputs to compare
+        public static void drawCompareGraphic(Graphics g, Auswahl playerWahl, Auswahl opWahl)
         {
             Pen pen = new Pen(Brushes.Blue);
             Brush brush = Brushes.Blue;            
@@ -106,6 +111,7 @@ namespace SchaereSteiPapier
 
         }
 
+        //draws the Text Victory or Lost in the middle of the screen
         public static void drawFinalGraphic(Graphics g, bool b)
         {
             Pen pen = new Pen(Brushes.Blue);
@@ -123,6 +129,7 @@ namespace SchaereSteiPapier
 
         }
 
+        //Animates the Loding screen
         public static void drawLodingGraphic(Graphics g, Explorer700 board)
         {
             Pen pen = new Pen(Brushes.Blue);
@@ -138,6 +145,7 @@ namespace SchaereSteiPapier
 
         }
 
+        // draws actuel max point that is chosen in the middle of the screen
         public static void drawMaxPointGraphic(Graphics g, int maxPoint)
         {
 
@@ -146,7 +154,7 @@ namespace SchaereSteiPapier
 
         }
 
-
+        //draws the replay question 
         public static void drawReplayGraphic(Graphics g)
         {
 

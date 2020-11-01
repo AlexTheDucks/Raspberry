@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace SchaereSteiPapier
 {
-    class Program
+    class SchaereSteiPapier
     {
 
         public static int maxpoint = 3;
@@ -17,23 +17,32 @@ namespace SchaereSteiPapier
 
         static void Main(string[] args)
         {
-           
+            
+            // Loding Screen
             DrawingMethods.drawLoadingScreen(board);
 
+            // do while for replaying the game
             do
             {
                 playerSetMaxPoint();
 
+                //Create and Start the game
                 Game play = new Game(maxpoint, board);
+                play.start();
 
-                play.battle();
-
+                //Restet replay Variable
                 replay = false;
+
+                //Register Event Handler
                 board.Joystick.JoystickChanged += Joystick_Replay;
+
+                //For loop to controll the timer
                 for (int i = 5; i >= 0; i--)
                 {
+                    //Checking to breake the waiting Screen for replay 
                     if (!replay)
                     {
+                        
                         timeLeft = i;
                         DrawingMethods.drawReplayScreen(board, timeLeft);
                         Thread.Sleep(1000);
@@ -53,7 +62,7 @@ namespace SchaereSteiPapier
            
         }
 
-
+        // Set max point Screen
         static private void playerSetMaxPoint()
         {
             board.Joystick.JoystickChanged += Joystick_MaxPoint;
@@ -70,12 +79,13 @@ namespace SchaereSteiPapier
         }
 
 
-
+        // Checking for chainging the points to winn
         private static void Joystick_MaxPoint(object sender, KeyEventArgs e)
         {
             
             if ((e.Keys & Keys.Left) != 0)
             {
+                // blocking max point lesser then 1
                 if (maxpoint>1)
                 {
                     maxpoint--;
@@ -89,14 +99,15 @@ namespace SchaereSteiPapier
                 Console.WriteLine(maxpoint);                
                
             }
-
+            // Change picture on the Screen
             DrawingMethods.drawMaxPointScreen(board, maxpoint, timeLeft);
 
         }
 
         private static void Joystick_Replay(object sender, KeyEventArgs e)
         {
-                      
+            
+            // if center butten is presst the Replay variable is set to true
             if ((e.Keys & Keys.Center) != 0)
             {
                 replay = true;                                

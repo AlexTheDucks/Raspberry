@@ -11,6 +11,8 @@ namespace SchaereSteiPapier
 {
     class Game
     {
+
+        //static variables to be accessed by event handler
         static Explorer700 board;
         AIOponent op = new AIOponent();
         int maxPoint;
@@ -22,22 +24,25 @@ namespace SchaereSteiPapier
         public Game(int maxPoint, Explorer700 boardgiven)
         {
             board = boardgiven;
-            board.Joystick.JoystickChanged += Joystick_ChooseAttack;
+            board.Joystick.JoystickChanged += Joystick_ChooseRoundInput;
             this.maxPoint = maxPoint;
             opPoint = 0;
             playerPoint = 0;
 
         }
 
-        public void battle()
+        //Starting the Game
+        public void start()
         {
             while (checkScore())
             {
-                attack();
+                round();
             }
 
-            board.Joystick.JoystickChanged -= Joystick_ChooseAttack;
+            board.Joystick.JoystickChanged -= Joystick_ChooseRoundInput;
 
+
+            //load the End Game Screen
             if (playerPoint >= maxPoint)
             {
                 DrawingMethods.drawFinalScreen(board,true);
@@ -51,24 +56,26 @@ namespace SchaereSteiPapier
                        
         }
 
-       
-        private void attack()
+       //making a Turn
+        private void round()
         {
+            //Choosing your input
             for(int i=5; i>=0; i--)
             {
                 timeLeft = i;
-                DrawingMethods.drawAttackChooseScreen(board, playerPoint, opPoint,timeLeft,playerWahl);
+                DrawingMethods.drawChooseRoundInputScreen(board, playerPoint, opPoint,timeLeft,playerWahl);
                 Thread.Sleep(1000);
             }
 
             Console.WriteLine("------------");
             Console.WriteLine("Attack");
             
-            
+            // AI choose his input
             Auswahl opWahl = op.yourTurn();
 
             WinnOrLose w = selectWinner(playerWahl, opWahl);
 
+            // just console
             if (w == (WinnOrLose)1)
             {
                 playerPoint++;
@@ -84,12 +91,14 @@ namespace SchaereSteiPapier
                 Console.WriteLine("Draw");
             }
 
-            DrawingMethods.drawBattleScreen(board,playerPoint,opPoint,playerWahl,opWahl);
+            //Loads the Compare Screan
+            DrawingMethods.drawCompareScreen(board,playerPoint,opPoint,playerWahl,opWahl);
             Thread.Sleep(3000);
 
 
         }
 
+        //Selects the winner
         private WinnOrLose selectWinner (Auswahl player, Auswahl oponent)
         {
             int w = player - oponent;
@@ -105,6 +114,7 @@ namespace SchaereSteiPapier
         }
 
 
+        //Checks if the game is finished
         private bool checkScore()
         {
             if(playerPoint>=maxPoint | opPoint >= maxPoint)
@@ -122,8 +132,8 @@ namespace SchaereSteiPapier
       
 
        
-
-        private static void Joystick_ChooseAttack(object sender, KeyEventArgs e)
+        //Event Handler for selecting the Input
+        private static void Joystick_ChooseRoundInput(object sender, KeyEventArgs e)
         {
 
 
@@ -142,7 +152,7 @@ namespace SchaereSteiPapier
             }
 
 
-            DrawingMethods.drawAttackChooseScreen(board, playerPoint, opPoint, timeLeft, playerWahl);
+            DrawingMethods.drawChooseRoundInputScreen(board, playerPoint, opPoint, timeLeft, playerWahl);
 
 
         }
