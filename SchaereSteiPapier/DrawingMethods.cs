@@ -48,7 +48,7 @@ namespace SchaereSteiPapier
             board.Display.Update();
             if (WinOrLoose)
             {
-                Sound.vicorySound(board); 
+               // Sound.vicorySound(board); 
             }
             
             Thread.Sleep(3000);
