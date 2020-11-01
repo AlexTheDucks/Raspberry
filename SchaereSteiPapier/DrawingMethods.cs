@@ -22,6 +22,19 @@ namespace SchaereSteiPapier
             return g;
         }
 
+        public static Graphics drawBattleScreen(Explorer700 board, int playerPoint, int opPoint)
+        {
+            Graphics g = board.Display.Graphics;
+
+            g.Clear(default);
+
+            DrawPattern.drawBattleGraphic(g);            
+            DrawPattern.drawScore(g, playerPoint, playerPoint);
+
+            board.Display.Update();
+            return g;
+        }
+
 
 
     }

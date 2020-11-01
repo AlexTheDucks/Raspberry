@@ -77,6 +77,9 @@ namespace SchaereSteiPapier
                 Console.WriteLine("Draw");
             }
 
+            DrawingMethods.drawBattleScreen(board,playerPoint,opPoint);
+            Thread.Sleep(4000);
+
 
         }
 

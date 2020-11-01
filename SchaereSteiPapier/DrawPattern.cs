@@ -45,7 +45,18 @@ namespace SchaereSteiPapier
         }
 
 
+        public static void drawBattleGraphic(Graphics g)
+        {
+            Pen pen = new Pen(Brushes.Blue);
+            Brush brush = Brushes.Blue;            
+
+            g.DrawRectangle(pen, new Rectangle(10, 10, 40, 40));
+            g.DrawRectangle(pen, new Rectangle(78, 10, 40, 40));
+            g.DrawString("VS", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(56, 25));
+
+        }
+
     }
 
 }
-}
+
