@@ -46,6 +46,10 @@ namespace SchaereSteiPapier
                 x--;
             }
 
+            g.Clear(default);
+            board.Display.Update();
+            g.DrawString("Anzahl Siege : " + maxpoit.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(10, 50));
+            board.Display.Update();
 
             board.Joystick.JoystickChanged += Joystick_MaxPoint;
             Thread.Sleep(5000);
@@ -74,9 +78,6 @@ namespace SchaereSteiPapier
 
             Graphics g = board.Display.Graphics;
             g.Clear(default);
-            board.Display.Update();
-            g.DrawString("Anzahl Siege : " + maxpoit.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(10, 50));
-            board.Display.Update();
         }
     }
 }
