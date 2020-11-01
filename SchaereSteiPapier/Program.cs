@@ -32,7 +32,7 @@ namespace SchaereSteiPapier
             board.Display.Update();
             
             int x = 5;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 1; i++)
             {
                 g.DrawString("Wähle anzahl Siege in", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Red, new PointF(5, 10));
                 g.DrawString(" " + x, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.White, new PointF(57, 25));

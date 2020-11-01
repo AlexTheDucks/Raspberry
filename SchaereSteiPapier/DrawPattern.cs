@@ -56,6 +56,24 @@ namespace SchaereSteiPapier
 
         }
 
+        public static void drawFinalGraphic(Graphics g, bool b)
+        {
+            Pen pen = new Pen(Brushes.Blue);
+            Brush brush = Brushes.Blue;
+
+            if (b)
+            {
+                g.DrawString("Victory", new Font(new FontFamily("arial"), 15, FontStyle.Bold), Brushes.Blue, new PointF(33, 10));
+            }
+            else
+            {
+                g.DrawString("Lost", new Font(new FontFamily("arial"), 15, FontStyle.Bold), Brushes.Blue, new PointF(35, 10));
+            }
+            
+
+        }
+
+
     }
 
 }

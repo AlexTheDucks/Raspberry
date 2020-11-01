@@ -26,7 +26,7 @@ namespace SchaereSteiPapier
             this.maxPoint = maxPoint;           
         }
 
-        public WinnOrLose battle()
+        public void battle()
         {
             while (checkScore())
             {
@@ -35,12 +35,15 @@ namespace SchaereSteiPapier
 
             if (playerPoint >= maxPoint)
             {
-                return (WinnOrLose)1;
+                DrawingMethods.drawFinalScreen(board,true);
+
             }
             else
             {
-                return (WinnOrLose)2;
+                DrawingMethods.drawFinalScreen(board,false);
             }
+
+            
 
 
             
