@@ -24,7 +24,15 @@ namespace SchaereSteiPapier
             }
         }
 
-        
+        public static void drawTimerBottomRight(Graphics g, int TimeLeft)
+        {
+            if (TimeLeft != -1)
+            {
+                g.DrawString(TimeLeft.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(120, 50));
+            }
+        }
+
+
 
         public static void drawAttackCoose(Graphics g)
         {
@@ -97,7 +105,7 @@ namespace SchaereSteiPapier
         public static void drawMaxPointGraphic(Graphics g, int maxPoint)
         {
 
-            g.DrawString("Wähle anzahl Siege:", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Red, new PointF(10, 10));
+            g.DrawString("Wähle anzahl Siege:", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Red, new PointF(10, 50));
             g.DrawString(maxPoint.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.White, new PointF(57, 25));
 
         }
