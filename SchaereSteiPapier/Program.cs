@@ -21,14 +21,14 @@ namespace SchaereSteiPapier
 
             
             Graphics g = board.Display.Graphics;
-            //g.DrawImage(Image.FromFile(".Explorer700Library/Explorer700-Demo/Ressources/test.png"), 0, 0);
             Pen pen = new Pen(Brushes.Blue);
             Pen penRed = new Pen(Brushes.Red);
-            g.DrawEllipse(pen, -10, -10, 30, 30);
+   /*         g.DrawEllipse(pen, -10, -10, 30, 30);
             g.DrawEllipse(penRed, 30, 10, 10, 10);
             pen.Width = 2;
             g.DrawBezier(pen, new Point(10, 30), new Point(30, 30), new Point(70, 40), new Point(75, 5));
-            g.DrawString("Fuck Git-.-", new Font(new FontFamily("arial"), 3, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
+   */  //       g.DrawString("Fuck Git-.-", new Font(new FontFamily("arial"), 3, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
+            g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Stein.png"), 10, 10);
             board.Display.Update();
             Thread.Sleep(3000);
             g.Clear(default);
