@@ -11,7 +11,7 @@ namespace SchaereSteiPapier
 {
     class Game
     {
-        Explorer700 board;
+        static Explorer700 board;
         AIOponent op = new AIOponent();
         int maxPoint;
         static int opPoint = 0;
@@ -50,6 +50,7 @@ namespace SchaereSteiPapier
             Console.WriteLine("------------");
             Console.WriteLine("Attack");
             Thread.Sleep(8000);
+            
             Auswahl opWahl = op.yourTurn();
 
             WinnOrLose w = selectWinner(playerWahl, opWahl);
@@ -96,8 +97,19 @@ namespace SchaereSteiPapier
                 
             }
             Console.WriteLine("Score: Player " + playerPoint + ", Oponent " + opPoint);
+            drawState0();
             return true;
          
+        }
+
+        public static Graphics drawState0()
+        {
+            Graphics g = board.Display.Graphics;
+            g.Clear(default);
+            g.DrawString("You: " + playerPoint, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
+            g.DrawString("Op.: " + opPoint, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(90, 50));
+            board.Display.Update();
+            return g;
         }
 
         private static void Joystick_ChooseAttack(object sender, KeyEventArgs e)
@@ -118,8 +130,8 @@ namespace SchaereSteiPapier
                 Console.WriteLine(playerWahl);
             }
 
-           
-           
+
+            drawState0();
 
 
         }
