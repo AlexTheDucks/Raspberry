@@ -16,7 +16,7 @@ namespace SchaereSteiPapier
 
             DrawPattern.drawAttackCoose(g);
             DrawPattern.drawTimer(g, TimeLeft);
-            DrawPattern.drawScore(g, playerPoint, playerPoint);
+            DrawPattern.drawScore(g, playerPoint, opPoint);
 
             board.Display.Update();
             return g;
@@ -29,7 +29,7 @@ namespace SchaereSteiPapier
             g.Clear(default);
 
             DrawPattern.drawBattleGraphic(g);            
-            DrawPattern.drawScore(g, playerPoint, playerPoint);
+            DrawPattern.drawScore(g, playerPoint, opPoint);
 
             board.Display.Update();
             return g;
