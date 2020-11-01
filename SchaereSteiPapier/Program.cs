@@ -28,7 +28,7 @@ namespace SchaereSteiPapier
             pen.Width = 2;
             g.DrawBezier(pen, new Point(10, 30), new Point(30, 30), new Point(70, 40), new Point(75, 5));
    */  //       g.DrawString("Fuck Git-.-", new Font(new FontFamily("arial"), 3, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
-            g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Stein.png"), 10, 10);
+            g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Auswahl/Papier.png"), 10, 10);
             board.Display.Update();
             Thread.Sleep(3000);
             g.Clear(default);
