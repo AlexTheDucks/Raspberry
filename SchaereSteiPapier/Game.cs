@@ -97,20 +97,14 @@ namespace SchaereSteiPapier
                 
             }
             Console.WriteLine("Score: Player " + playerPoint + ", Oponent " + opPoint);
-            drawState0();
+            DrawingMethods.drawStateAttack(board,playerPoint,opPoint);
             return true;
          
         }
 
-        public static Graphics drawState0()
-        {
-            Graphics g = board.Display.Graphics;
-            g.Clear(default);
-            g.DrawString("You: " + playerPoint, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
-            g.DrawString("Op.: " + opPoint, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(90, 50));
-            board.Display.Update();
-            return g;
-        }
+      
+
+       
 
         private static void Joystick_ChooseAttack(object sender, KeyEventArgs e)
         {
@@ -131,7 +125,7 @@ namespace SchaereSteiPapier
             }
 
 
-            drawState0();
+            DrawingMethods.drawStateAttack(board, playerPoint, opPoint);
 
 
         }
