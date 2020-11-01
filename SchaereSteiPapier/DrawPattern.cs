@@ -16,13 +16,15 @@ namespace SchaereSteiPapier
 
         }
 
-        public static void drawTimer(Graphics g, int TimeLeft)
+        public static void drawTimerBottom(Graphics g, int TimeLeft)
         {
             if (TimeLeft != -1)
             {
                 g.DrawString(TimeLeft.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(61, 50));
             }
         }
+
+        
 
         public static void drawAttackCoose(Graphics g)
         {
@@ -72,6 +74,27 @@ namespace SchaereSteiPapier
             
 
         }
+
+        public static void drawLodingGraphic(Graphics g)
+        {
+            Pen pen = new Pen(Brushes.Blue);
+            Pen penRed = new Pen(Brushes.Red);
+            g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Schere.png"), 0, 0);
+            g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Stein.png"), 36, 26);
+            g.DrawImage(Image.FromFile("/home/pi/netcore/SchaereSteiPapier/Ressources/Ergebniss/Papier.png"), 82, 0);
+
+        }
+
+        public static void drawMaxPointGraphic(Graphics g, int maxPoint)
+        {
+
+            g.DrawString("Wähle anzahl Siege:", new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Red, new PointF(10, 50));
+            g.DrawString(maxPoint.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.White, new PointF(57, 25));
+
+        }
+
+
+
 
 
     }
