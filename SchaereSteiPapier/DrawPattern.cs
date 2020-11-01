@@ -63,11 +63,11 @@ namespace SchaereSteiPapier
 
             if (b)
             {
-                g.DrawString("Victory", new Font(new FontFamily("arial"), 15, FontStyle.Bold), Brushes.Blue, new PointF(33, 10));
+                g.DrawString("Victory", new Font(new FontFamily("arial"), 15, FontStyle.Bold), Brushes.Blue, new PointF(33, 15));
             }
             else
             {
-                g.DrawString("Lost", new Font(new FontFamily("arial"), 15, FontStyle.Bold), Brushes.Blue, new PointF(35, 10));
+                g.DrawString("Lost", new Font(new FontFamily("arial"), 15, FontStyle.Bold), Brushes.Blue, new PointF(40, 15));
             }
             
 
