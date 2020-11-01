@@ -17,6 +17,7 @@ namespace SchaereSteiPapier
         static int opPoint = 0;
         static int playerPoint = 0;
         static Auswahl playerWahl = (Auswahl)0;
+        static int Timer;
 
         public Game(int maxPoint, Explorer700 boardgiven)
         {
@@ -47,9 +48,15 @@ namespace SchaereSteiPapier
 
         private void attack()
         {
+            for(int i=5; i>=0; i--)
+            {
+                DrawingMethods.drawStateAttack(board, playerPoint, opPoint,i);
+                Thread.Sleep(1000);
+            }
+
             Console.WriteLine("------------");
             Console.WriteLine("Attack");
-            Thread.Sleep(8000);
+            
             
             Auswahl opWahl = op.yourTurn();
 
@@ -97,7 +104,7 @@ namespace SchaereSteiPapier
                 
             }
             Console.WriteLine("Score: Player " + playerPoint + ", Oponent " + opPoint);
-            DrawingMethods.drawStateAttack(board,playerPoint,opPoint);
+            
             return true;
          
         }
@@ -125,7 +132,7 @@ namespace SchaereSteiPapier
             }
 
 
-            DrawingMethods.drawStateAttack(board, playerPoint, opPoint);
+            DrawingMethods.drawStateAttack(board, playerPoint, opPoint, -1);
 
 
         }

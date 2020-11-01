@@ -8,7 +8,7 @@ namespace SchaereSteiPapier
 {
     static class DrawingMethods
     {
-        public static Graphics drawStateAttack(Explorer700 board, int playerPoint, int opPoint)
+        public static Graphics drawStateAttack(Explorer700 board, int playerPoint, int opPoint, int Timeleft)
         {
             Graphics g = board.Display.Graphics;
             g.Clear(default);
@@ -28,6 +28,10 @@ namespace SchaereSteiPapier
             g.DrawRectangle(pen, new Rectangle(39, 0, 50, 50));
             g.FillPolygon(brush, pointsLeft);
             g.FillPolygon(brush, pointsRight);
+            if (Timeleft != -1)
+            {
+                g.DrawString(Timeleft.ToString(), new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(61, 50));
+            }
             g.DrawString("You: " + playerPoint, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(5, 50));
             g.DrawString("Op.: " + opPoint, new Font(new FontFamily("arial"), 8, FontStyle.Bold), Brushes.Blue, new PointF(90, 50));
             board.Display.Update();
