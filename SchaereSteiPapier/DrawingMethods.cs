@@ -16,7 +16,7 @@ namespace SchaereSteiPapier
             g.Clear(default);
 
             DrawPattern.drawAttackCoose(g);
-            DrawPattern.drawTimer(g, TimeLeft);
+            DrawPattern.drawTimerBottom(g, TimeLeft);
             DrawPattern.drawScore(g, playerPoint, opPoint);
 
             board.Display.Update();
@@ -52,7 +52,37 @@ namespace SchaereSteiPapier
             
         }
 
+        public static void drawLoadingScreen(Explorer700 board)
+        {
+
+            Graphics g = board.Display.Graphics;
+
+            g.Clear(default);
+
+            DrawPattern.drawLodingGraphic(g);    
+            
+            board.Display.Update();
+            Thread.Sleep(3000);
+
+        }
+
+        public static void drawMaxPointScreen(Explorer700 board, int maxPoint, int timeLeft)
+        {
+
+            Graphics g = board.Display.Graphics;
+
+            g.Clear(default);
+
+            DrawPattern.drawMaxPointGraphic(g, maxPoint);
+            DrawPattern.drawTimerBottom(g, timeLeft);
+
+            board.Display.Update();
+           
+
+        }
+
+
 
     }
-      
+
 }
