@@ -36,6 +36,8 @@ namespace SchaereSteiPapier
                 //Register Event Handler
                 board.Joystick.JoystickChanged += Joystick_Replay;
 
+                Console.WriteLine("Press \"Center\" for Replay");
+
                 //For loop to controll the timer
                 for (int i = 5; i >= 0; i--)
                 {
@@ -50,6 +52,7 @@ namespace SchaereSteiPapier
                     else
                     {
                         break;
+                        Console.WriteLine("--> Replay");
                     }
                     
                 }
@@ -66,7 +69,7 @@ namespace SchaereSteiPapier
         static private void playerSetMaxPoint()
         {
             board.Joystick.JoystickChanged += Joystick_MaxPoint;
-
+            Console.WriteLine("Maxpoint is: " + maxpoint);
 
             for (int i = 5; i >= 0; i--)
             {
@@ -91,12 +94,12 @@ namespace SchaereSteiPapier
                     maxpoint--;
                 }
                 
-                Console.WriteLine(maxpoint);
+                Console.WriteLine("Maxpoint set to: "+maxpoint);
             }
             if ((e.Keys & Keys.Right) != 0)
             {
                 maxpoint++;
-                Console.WriteLine(maxpoint);                
+                Console.WriteLine("Maxpoint set to: " + maxpoint);                
                
             }
             // Change picture on the Screen

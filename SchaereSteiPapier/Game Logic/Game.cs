@@ -34,6 +34,7 @@ namespace SchaereSteiPapier
         //Starting the Game
         public void start()
         {
+            Console.WriteLine("Gamestart");
             while (checkScore())
             {
                 round();
@@ -41,16 +42,19 @@ namespace SchaereSteiPapier
 
             board.Joystick.JoystickChanged -= Joystick_ChooseRoundInput;
 
+            Console.WriteLine("------------");
+            Console.WriteLine("------------");
 
             //load the End Game Screen
             if (playerPoint >= maxPoint)
             {
                 DrawingMethods.drawFinalScreen(board,true);
-
+                Console.WriteLine("You have won the Game");
             }
             else
             {
                 DrawingMethods.drawFinalScreen(board,false);
+                Console.WriteLine("You have Lost the Game");
             }
 
                        
@@ -60,16 +64,18 @@ namespace SchaereSteiPapier
         private void round()
         {
             //Choosing your input
-            for(int i=5; i>=0; i--)
+            Console.WriteLine("------------");
+            Console.WriteLine("Input is: " + playerWahl);
+
+            for (int i=5; i>=0; i--)
             {
                 timeLeft = i;
                 DrawingMethods.drawChooseRoundInputScreen(board, playerPoint, opPoint,timeLeft,playerWahl);
                 Thread.Sleep(1000);
             }
 
-            Console.WriteLine("------------");
-            Console.WriteLine("Attack");
             
+
             // AI choose his input
             Auswahl opWahl = op.yourTurn();
 
@@ -79,16 +85,16 @@ namespace SchaereSteiPapier
             if (w == (WinnOrLose)1)
             {
                 playerPoint++;
-                Console.WriteLine("Win");
+                Console.WriteLine("You have won this round");
             }
             else if (w == (WinnOrLose)2)
             {
                 opPoint++;
-                Console.WriteLine("Loose");
+                Console.WriteLine("You have lost this rounde");
             }
             else
             {
-                Console.WriteLine("Draw");
+                Console.WriteLine("It was a draw");
             }
 
             //Loads the Compare Screan
@@ -142,13 +148,13 @@ namespace SchaereSteiPapier
                 // +2 == -1
                 int playerint = ((int)playerWahl+2) % 3;
                 playerWahl = (Auswahl)playerint;
-                Console.WriteLine(playerWahl);
+                Console.WriteLine("Input is changed to: " + playerWahl);
             }
             if ((e.Keys & Keys.Right) != 0)
             {
                 int playerint = ((int)playerWahl + 1) % 3;
                 playerWahl = (Auswahl)playerint;
-                Console.WriteLine(playerWahl);
+                Console.WriteLine("Input is changed to: " + playerWahl);
             }
 
 
